@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Shop Homepage - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+
+<body ng-app="BlogApp" ng-controller="blogCtrl">
+
+ 
+
+  <!-- Page Content -->
+  <div class="container">
+      {{title}}
+      {{info}}
+      {{error}}
+    <div class="row">
+            <input type="number"   ng-model="blogger" placeholder="blogger"  >
+            <button class="btn-primary" ng-click="getBlog(blogger)">show</button>
+    </div>        
+    <div class="row">
+        <br>
+        <br>
+            <ul>
+                <li>{{blog.blogger }} </li>
+                <li>{{blog.title }} </li>
+                <li>Notes : </li>
+            </ul>
+
+					<table border >
+                        <tr>
+                        <th>Blogger</th>
+                        <th>title</th>
+                        <th>Remove</th>
+                        </tr>
+						<tr ng-repeat="note in blog.notes track by $index">
+                            <td>{{ note.id }}</td>
+                            <td>{{ note.title }}</td>
+                            <td>
+                                <button class="btn btn-danger" ng-click="deleteNote(note.id)">
+                                Remove
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+        </div>    
+        
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/angular/angular.min.js"></script>
+  <script src="app/js/main.js"></script>
+  
+
+  </body>
+
+  </html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>TestApp</title>
+
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/appTest.css" rel="stylesheet">
+</head>
+
+<body ng-app="BlogApp" ng-controller="blogCtrl">
+
+  <!-- Page Content -->
+  <div class="container">
+      <div class="clear"></div>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 myCol">
+        
+            <nav class="navbar navbar-light bg-faded justify-content-between">
+                <div class="form-inline">
+                    <input class="form-control mr-sm-2" type="number" placeholder="Blogger" ng-model="blogger" >
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" ng-click="getBlog(blogger)">Search</button>
+                </div>
+            </nav>
+
+
+            <div class="alert alert-warning" ng-show="error">
+                <strong>Warning: </strong>  {{error}}
+            </div>      
+     
+       
+            <ul class="list-group">
+                <li class="list-group-item">Blogger : {{blog.blogger }} </li>
+                <li class="list-group-item">Title : {{blog.title }} </li>
+                <li class="list-group-item">Notes : <span class="badge">{{blog.notes.length }}</span> </li>
+            </ul>
+
+            <br/>
+
+            <table border class="table-striped myTable">
+                <tr>
+                    <th>Note ID</th>
+                    <th>title</th>
+                    <th>Remove</th>
+                    </tr>
+				<tr ng-repeat="note in blog.notes track by $index">
+                    <td>{{ note.id }}</td>
+                    <td>{{ note.title }}</td>
+                    <td>
+                        <button class="btn btn-danger" ng-click="deleteNote(note)">
+                            Remove
+                        </button>
+                        </td>
+                </tr>
+            </table>
+        
+        </div>    
+        <div class="col-2"></div>
+      </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <script src="vendor/angular/angular.min.js"></script>
+  <script src="app/js/main.js"></script>
+  
+</body>
+</html>

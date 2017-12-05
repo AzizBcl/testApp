@@ -1,0 +1,11 @@
+
+.clear{
+height: 10px;
+}
+.myTable{
+width:100%;
+    text-align: center;
+}
+.myCol{
+border: 1px solid #EEE;
+}
